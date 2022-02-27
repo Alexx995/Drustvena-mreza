@@ -25,7 +25,14 @@ DobroDosao u klub <br><br>
 
  ?>
 
-<a href="profile.php">Profil</a>
+<?php
+
+if(isset($_SESSION["email"])){
+    $sesn=($_SESSION["email"]);
+}
+?>
+<br>
+<a href="profile.php"><?php echo $sesn ?></a>
 
 <form action="logout.php" name="logout">
 
@@ -33,13 +40,7 @@ DobroDosao u klub <br><br>
 
 </form>
 
-<?php 
 
-if(isset($_SESSION["email"])){
-    echo " Your email is: " . $_SESSION["email"];
-    //unset($_SESSION["email"]);
-}
- ?>
 
 <form action= "postovanje.php" method="post">
     <h3>Create a new post</h3>
@@ -80,10 +81,7 @@ while(($row = mysqli_fetch_assoc($rezultat))) {
     $podaci[] = $row;
 }
 
-// var_dump($podaci['content']);
-// return;
 
-//<a href="profile.php">Profil</a>
 
 foreach($podaci as $row){
 

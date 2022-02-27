@@ -8,25 +8,12 @@ session_start();
 include "header.php";
 ?>
 
-<?php 
-
-if(isset($_SESSION["picture"])){
-    echo $_SESSION["picture"];
-}
- ?>
-
-<?php //echo "<img src="slika" height=500 width=400 />";  ?>
-
-<form action="uploadslika.php" method='POST' enctype="multipart/form-data">
-    Select image to upload
-    <input type="hidden" name='size' value='100000'>
-
-    <input type="file" name='image'>
-
-    <input type='submit' name="upload" value='Upload image'>
-
-
-</form>
+<?php //
+//
+//if(isset($_SESSION["picture"])){
+//    echo $_SESSION["picture"];
+//}
+// ?>
 
 <?php
 
@@ -36,24 +23,30 @@ if(isset($_SESSION["picture"])){
 
     $row = mysqli_fetch_assoc($rezultat);
 
-
-    while(($row = mysqli_fetch_assoc($rezultat))) {
-    $podaci[] = $row;
-    }
-
-
-    var_dump($podaci);
-    return;
-
-    foreach($podaci as $row){
-
-
-
     echo "<p><img src='" . $row['profile_image'] . "' height=200 width=150  ></p>
-    <p><a href='profil.php'> " . $row['first_name'] . " " . $row['last_name'] .  "</a></p></form>";
-    }
+    <p><a href='profile.php'> " . $row['first_name'] . " " . $row['last_name'] .  "</a></p></form>";
+
 
     ?>
+    <form action="uploadslika.php" method='POST' enctype="multipart/form-data">
+        Select image to upload
+        <input type="hidden" name='size' value='100000'>
+
+        <input type="file" name='image'>
+
+        <input type='submit' name="upload" value='Upload image'>
+
+
+    </form>
+
+    <form action= "postovanje.php" method="post">
+        <h3>Create a new post</h3>
+        <textarea name="post-status" cols='60' rows='5' placeholder="Post content....."></textarea>
+        <input type="submit" value="post" name="submit">
+
+    </form>
+
+
 
 
 
