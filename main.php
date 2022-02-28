@@ -14,26 +14,23 @@ include "header.php";
 
 <?php
 
-// $sql="SELECT first_name, last_name FROM users WHERE email='$_SESSION["email"]' ";
-//  $userid=mysqli_query($konekcija, $sql);
-//  $ovono = mysqli_fetch_assoc($userid);
-//  $imence= implode(' ', $ovono);
-//
-//  var_dump($imence);
-//  return;
-
- 
-
- ?>
-
-<?php
-
 if(isset($_SESSION["email"])){
     $sesn=($_SESSION["email"]);
 }
+
+$sql = "SELECT profile_image, first_name, last_name FROM users WHERE email='$sesn'";
+
+$rezultat = mysqli_query($konekcija, $sql);
+
+$row = mysqli_fetch_assoc($rezultat);
+
+echo "<p><img src='" . $row['profile_image'] . "' height=100 width=80  ></p>
+    <p><a href='profile.php'> " . $row['first_name'] . " " . $row['last_name'] . "</a></p></form>";
+
+
 ?>
 <br>
-<a href="profile.php"><?php echo $sesn ?></a>
+
 
 <form action="logout.php" name="logout">
 

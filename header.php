@@ -18,11 +18,7 @@
 
     <img src="slike/Twitter_Logo_Mini.svg" height=70 width=70>
 
-    <ul>
-<li><a href="main.php">Home</a></li>
-<li><a href="login.php">Login</a></li>
-<li><a href="register.php">Register</a></li>
-</ul>
+    <a href="main.php">Home</a>
 
 
     
