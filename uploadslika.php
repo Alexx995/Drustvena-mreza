@@ -11,13 +11,13 @@ $imence= implode($ovono);
 
 $image=$_FILES['image']["name"];
 $tempname = $_FILES["image"]["tmp_name"]; 
-$target = $image;
+$target = "slike/$image";
 
 //$sql_komanda="INSERT INTO users (profile_image)
 // VALUES('$image')";
 // mysqli_query($konekcija, $sql_komanda);
 
-$sql_komanda="UPDATE users SET  profile_image='$image' WHERE id='$imence' ";
+$sql_komanda="UPDATE users SET  profile_image='$target' WHERE id='$imence' ";
 mysqli_query($konekcija, $sql_komanda);
 
 
