@@ -12,14 +12,15 @@ include "header.php";
 
 ?>
 
-DobroDosao u klub <br><br>
-
 <?php
 
-// $sql="SELECT ime, prezime FROM users WHERE email='$_SESSION["email"]' ";
+// $sql="SELECT first_name, last_name FROM users WHERE email='$_SESSION["email"]' ";
 //  $userid=mysqli_query($konekcija, $sql);
 //  $ovono = mysqli_fetch_assoc($userid);
 //  $imence= implode(' ', $ovono);
+//
+//  var_dump($imence);
+//  return;
 
  
 
