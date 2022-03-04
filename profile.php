@@ -24,7 +24,7 @@ include "header.php";
     $row = mysqli_fetch_assoc($rezultat);
 
     echo "<p><img src='" . $row['profile_image'] . "' height=200 width=150  ></p>
-    <p><a href='profile.php'> " . $row['first_name'] . " " . $row['last_name'] .  "</a></p></form>";
+    <h2><a href='profile.php'> " . $row['first_name'] . " " . $row['last_name'] .  "</a></h2></form>";
 
 
     ?>
@@ -47,8 +47,14 @@ include "header.php";
     </form>
 <?php
 
+
+
 $user_id="SELECT id FROM users WHERE active=1";
 $userid=mysqli_query($konekcija, $user_id);
+
+//if(mysql_num_rows($userid) <0){
+//    echo "no results";
+//}else{
 $ovono = mysqli_fetch_assoc($userid);
 $imence= implode($ovono);
 

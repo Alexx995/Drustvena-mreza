@@ -18,6 +18,7 @@ if(isset($_SESSION["email"])){
     $sesn=($_SESSION["email"]);
 }
 
+
 $sql = "SELECT profile_image, first_name, last_name FROM users WHERE email='$sesn'";
 
 $rezultat = mysqli_query($konekcija, $sql);
@@ -25,7 +26,7 @@ $rezultat = mysqli_query($konekcija, $sql);
 $row = mysqli_fetch_assoc($rezultat);
 
 echo "<p><img src='" . $row['profile_image'] . "' height=100 width=80  ></p>
-    <p><a href='profile.php'> " . $row['first_name'] . " " . $row['last_name'] . "</a></p></form>";
+    <h1><a href='profile.php'> " . $row['first_name'] . " " . $row['last_name'] . "</a></h1></form>";
 
 
 ?>
@@ -66,7 +67,7 @@ if(isset($_SESSION["dugackoime"])){
 <?php
 //$query="SELECT * FROM posts ORDER BY created_time  DESC ";
 
-$proba="SELECT users.profile_image, users.first_name, users.last_name, posts.content, posts.likes, posts.created_time, posts.id FROM users INNER JOIN posts ON users.id=posts.user_id ORDER BY posts.created_time  DESC";
+$proba="SELECT users.profile_image, users.first_name, users.last_name, posts.content, posts.likes, posts.created_time, users.id FROM users INNER JOIN posts ON users.id=posts.user_id ORDER BY posts.created_time  DESC";
 
 
 
@@ -86,7 +87,7 @@ foreach($podaci as $row){
 
 
 echo "<p><img src='" . $row['profile_image'] . "' height=50 width=40  >
-<a href='profile.php'> " . $row['first_name'] . " " . $row['last_name'] .  "</a></p>
+<a href='tudjiprofil.php?id=".$row["id"]."''>" . $row['first_name'] . " " . $row['last_name'] .  "</a></p>
 <p>" . $row['content'] . "</p>
 <p><i>Date: <b>" . $row['created_time'] . "</b></i></p>
 <p>Likes: <b>" . $row['likes'] . "</b></p>
