@@ -67,7 +67,7 @@ if(isset($_SESSION["dugackoime"])){
 <?php
 //$query="SELECT * FROM posts ORDER BY created_time  DESC ";
 
-$proba="SELECT users.profile_image, users.first_name, users.last_name, posts.content, posts.likes, posts.created_time, users.id FROM users INNER JOIN posts ON users.id=posts.user_id ORDER BY posts.created_time  DESC";
+$proba="SELECT users.profile_image, users.first_name, users.last_name, posts.content, posts.likes, posts.created_time, users.id, posts.idp FROM users INNER JOIN posts ON users.id=posts.user_id ORDER BY posts.created_time  DESC";
 
 
 
@@ -91,7 +91,7 @@ echo "<p><img src='" . $row['profile_image'] . "' height=50 width=40  >
 <p>" . $row['content'] . "</p>
 <p><i>Date: <b>" . $row['created_time'] . "</b></i></p>
 <p>Likes: <b>" . $row['likes'] . "</b></p>
-<form action='lajkovanje.php' method='post' name='lajk'><input value=".$row["id"]." name='id' hidden><button>Like</button></form>";
+<form action='lajkovanje.php' method='post' name='lajk'><input value=".$row['idp']." name='id' hidden><button>Like</button></form>";
 }
 
 ?>

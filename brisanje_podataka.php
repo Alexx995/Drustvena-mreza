@@ -3,7 +3,7 @@
 require_once('db.php');
 $konekcija=(new mysqlconnector())->connectToMysql();
 
-$sql_komanda="DELETE FROM posts WHERE id={$_POST['id']}";
+$sql_komanda="DELETE FROM posts WHERE idp={$_POST['id']}";
 
 
 // provera

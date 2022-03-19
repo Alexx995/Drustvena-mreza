@@ -58,7 +58,7 @@ $userid=mysqli_query($konekcija, $user_id);
 $ovono = mysqli_fetch_assoc($userid);
 $imence= implode($ovono);
 
-$proba="SELECT users.profile_image, users.first_name, users.last_name, posts.content, posts.likes, posts.created_time, posts.id FROM users INNER JOIN posts ON users.id=posts.user_id WHERE users.id='$imence' ORDER BY posts.created_time  DESC";
+$proba="SELECT users.profile_image, users.first_name, users.last_name, posts.content, posts.likes, posts.created_time, posts.idp FROM users INNER JOIN posts ON users.id=posts.user_id WHERE users.id='$imence' ORDER BY posts.created_time  DESC";
 $rezultat=mysqli_query($konekcija, $proba);
 
 
@@ -78,8 +78,8 @@ foreach($podaci as $row){
 <p>" . $row['content'] . "</p>
 <p><i>Date: <b>" . $row['created_time'] . "</b></i></p>
 <p>Likes: <b>" . $row['likes'] . "</b></p>
-<form action='lajkovanje_sa_profila.php' method='post' name='lajk'><input value=".$row["id"]." name='id' hidden><button>Like</button></form>
-<form action='brisanje_podataka.php' method='post'><input value=".$row["id"]." name='id' hidden><button>Delete</button></form>";
+<form action='lajkovanje_sa_profila.php' method='post' name='lajk'><input value=".$row["idp"]." name='id' hidden><button>Like</button></form>
+<form action='brisanje_podataka.php' method='post'><input value=".$row["idp"]." name='id' hidden><button>Delete</button></form>";
 }
 
 

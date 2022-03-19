@@ -12,10 +12,10 @@ $sqlkomanda="UPDATE posts SET `likes` = `likes`+1 WHERE idp={$_POST['id']}";
 
 // provera
 if(mysqli_query($konekcija, $sqlkomanda)) {
-    header("Location: main.php");  
- }else {
+    header("Location: tudjiprofil.php");
+}else {
     echo "Sql komanda nije uspela". mysqli_error($konekcija);
-  }
+}
 
 
 

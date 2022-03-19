@@ -3,11 +3,11 @@ require_once('db.php');
 $konekcija=(new mysqlconnector())->connectToMysql();
 
 
-$lajk=$_POST["lajk"];
+//$lajk=$_POST["lajk"];
 
 
 
-$sqlkomanda="UPDATE posts SET `likes` = `likes`+1 WHERE id={$_POST['id']}";
+$sqlkomanda="UPDATE posts SET `likes` = `likes`+1 WHERE idp={$_POST['id']}";
 
 
 // provera
