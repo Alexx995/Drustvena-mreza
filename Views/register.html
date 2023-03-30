@@ -1,10 +1,11 @@
 <?php 
 session_start();
-include "header.php";
  ?>
+<h1>Register</h1>
+    <img src="slike/Twitter_Logo_Mini.svg" alt="" height=200 width=150>
 
 
-<form  action= "registrovanje.php" method="post">
+<form action= "../registrovanje.php" method="post">
     <input type="text" name="first_name" placeholder="First name"><br>
     <?php if(isset($_SESSION["ime"])){echo $_SESSION["ime"];unset($_SESSION["ime"]);}?>
     <?php if(isset($_SESSION["kratkoime"])){echo $_SESSION["kratkoime"];unset($_SESSION["kratkoime"]);}?><br>
@@ -54,9 +55,9 @@ if(isset($_SESSION["error"])){
 }
  ?>
 
+<a href="login.html">Login</a>
 
 
 
 
-
-<?php include "footer.php"; ?>
+<?php include "footer.html"; ?>

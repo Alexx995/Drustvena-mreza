@@ -1,0 +1,17 @@
+<?php
+require_once('../db.php');
+$konekcija=(new mysqlconnector())->connectToMysql();
+session_start();
+include "header.html";
+?>
+
+<form action="../insertpicture.php" method='POST' enctype="multipart/form-data">
+    Select image to upload
+    <input type="hidden" name='size' value='100000'>
+    <input type="file" name='image'>
+    <br>
+    <label for="description">Description:</label>
+    <input type="text" name="description">
+    <br>
+    <input type='submit' name="upload" value='Upload image'>
+</form>

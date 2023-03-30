@@ -30,7 +30,7 @@ $_SESSION["error"]="";
 
 if(empty($podaci)){
   $_SESSION["error"]="Sva polja moraju biti popunjena";
-  header("Location: login.php"); 
+  header("Location: views/login.html");
   return;
   }
 //
@@ -58,10 +58,10 @@ if(empty($podaci)){
   $kontakt="UPDATE users SET active=1 WHERE email='$email' ";
  if(mysqli_query($konekcija, $kontakt)){
   $_SESSION["email"] = $email;
-  header("Location: main.php");
+  header("Location: views/main.html");
 }else{
   $_SESSION["error"]="Ne postoji takav nalog";
-  header("Location: login.php"); 
+  header("Location: views/login.html");
   return;
 }
 

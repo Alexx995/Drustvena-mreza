@@ -1,0 +1,76 @@
+<?php
+require_once('../db.php');
+$konekcija=(new mysqlconnector())->connectToMysql();
+session_start();
+include "header.html";
+
+
+
+$sql="SELECT users.profile_image, users.first_name, users.last_name, users.id, posts.content, posts.description, posts.likes,  posts.created_time, posts.idp FROM users INNER JOIN posts ON users.id=posts.user_id WHERE posts.idp={$_GET['id']}";
+$rezultat=mysqli_query($konekcija, $sql);
+
+while(($row = mysqli_fetch_assoc($rezultat))) {
+    $podaci[] = $row;
+}
+
+foreach($podaci as $row){
+
+
+    echo "<p><img src='" . $row['profile_image'] . "' height=50 width=40  >
+<h2><a href='tudjiprofil.html?id=".$row["id"]."''>" . $row['first_name'] . " " . $row['last_name'] .  "</a></h2></p>
+<p>";
+    if (strpos($row['content'], 'slike/') !== false) {
+        // If the content is an image path, display the image
+        echo "<p><img src='" . $row['content'] . "' width='400' height='250'></p>";
+        echo "<p>" . $row['description'] . "</p>";
+
+    } else {
+        // If the content is a string, display it
+        echo "<p>" . $row['content'] . "</p>";
+    }
+    echo "</p><p><i>Date: <b>" . $row['created_time'] . "</b></i></p>
+    <p>" . $row['likes'] . "</p>";
+}
+
+
+?>
+
+
+
+<form action="../comment2.php" method="post">
+    <input type="hidden" name="post_id" value="<?php echo $_GET['id']; ?>">
+    <input type="text" name="comment" placeholder="Write a comment">
+    <input type="submit" value="Comment">
+</form>
+
+<?php
+
+
+
+$sql_command="SELECT users.id, users.profile_image, users.first_name, users.last_name, comment.user_id, comment.comment, comment.created_time, posts.user_id, posts.idp, posts.content
+FROM users
+INNER JOIN comment ON users.id=comment.user_id
+INNER JOIN posts ON posts.idp=comment.post_id
+WHERE posts.idp={$_GET['id']}";
+
+$query=mysqli_query($konekcija, $sql_command);
+
+
+while(($rows = mysqli_fetch_assoc($query))) {
+    $podacis[] = $rows;
+}
+
+if (empty($podacis)) {
+  echo "No comments found.";
+} else {
+
+foreach($podacis as $rows){
+
+
+    echo "<p><img src='" . $rows['profile_image'] . "' height=50 width=40  >
+<h5><a href='tudjiprofil.php?id=".$rows["id"]."''>" . $rows['first_name'] . " " . $rows['last_name'] .  "</a></h5></p>
+<p>" . $rows['comment'] . "</p>
+<p><i>Date: <b>" . $rows['created_time'] . "</b></i></p>";
+}
+}
+?>

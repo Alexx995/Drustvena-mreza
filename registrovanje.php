@@ -28,36 +28,36 @@ $rpassword=$_POST["rpassword"];
 
  if(empty($ime)){
    $_SESSION["ime"]="Unesite polje ime";
-   header("Location: register.php"); 
+   header("Location: views/register.html");
    
  }
  if(empty($prezime)){
    $_SESSION["prezime"]="Unesite polje prezime";
-   header("Location: register.php"); 
+   header("Location: views/register.html");
    
  }
  if(empty($username)){
    $_SESSION["username"]="Unesite polje username";
-   header("Location: register.php"); 
+   header("Location: views/register.html");
  
  }
  if(empty($mail)){
    $_SESSION["email"]="Unesite polje email";
-   header("Location: register.php"); 
+   header("Location: views/register.html");
    
  }
  if(empty($password)){
    $_SESSION["password"]="Unesite polje password";
-   header("Location: register.php"); 
+   header("Location: views/register.html");
    
  }
  if(empty($rpassword)){
    $_SESSION["rpassword"]="Unesite polje rpassword";
-   header("Location: register.php"); 
+   header("Location: views/register.html");
    }
    if(strlen($ime) < 4 ){
       $_SESSION["kratkoime"]="Kratko ime";
-      header("Location: register.php"); 
+      header("Location: views/register.html");
        return;
    }
 //  if(strlen($ime) < 3){
@@ -95,7 +95,7 @@ $sql_komanda="INSERT INTO users (first_name, last_name, username, profile_image,
 // provera
 if(mysqli_query($konekcija, $sql_komanda)) {
     $_SESSION["status"]="You have been successfuly registered, please log in";    
-    header("Location: register.php");  
+    header("Location: views/register.html");
  }else {
     echo "Sql komanda nije uspela". mysqli_error($konekcija);
   } 

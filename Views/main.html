@@ -1,0 +1,118 @@
+<html>
+
+<?php
+
+session_start();
+// var_dump($_SESSION);
+// return;
+// if(!isset($_SESSION["email"])){
+//     header("location: login.php");
+// }
+//session_start();
+require_once('../db.php');
+$konekcija=(new mysqlconnector())->connectToMysql();
+include "header.html";
+
+?>
+
+
+
+<div class="user_body">
+
+<form action= "../postovanje.php" method="post">
+    <h3>Create a new post</h3>
+    <textarea name="post-status" cols='60' rows='10' placeholder="Post content....."></textarea>
+    <input type="submit" value="post" name="submit">
+
+</form>
+    <form action='photovideo.html' method='post' name='pv'><button>Upload photo or video</button></form>
+
+
+
+
+<?php 
+
+if(isset($_SESSION["error"])){
+    echo $_SESSION["error"];
+    unset($_SESSION["error"]);
+}
+ ?>
+ <br>
+ <?php 
+
+if(isset($_SESSION["dugackoime"])){
+    echo $_SESSION["dugackoime"];
+    unset($_SESSION["dugackoime"]);
+}
+ ?>
+
+<?php
+//$query="SELECT * FROM posts ORDER BY created_time  DESC ";
+
+$proba="SELECT users.profile_image, users.first_name, users.last_name, posts.content, posts.description, posts.likes,  posts.created_time, users.id, posts.idp FROM users INNER JOIN posts ON users.id=posts.user_id ORDER BY posts.created_time  DESC";
+
+
+
+
+$rezultat=mysqli_query($konekcija, $proba);
+
+
+
+while(($row = mysqli_fetch_assoc($rezultat))) {
+    $podaci[] = $row;
+}
+
+
+if (empty($podaci)) {
+    echo "<p>There are no data to display.</p>";
+    } else {
+
+foreach($podaci as $row){
+
+    echo "<p><img src='" . $row['profile_image'] . "' height=50 width=40  >
+<a href='tudjiprofil.html?id=".$row["id"]."''>" . $row['first_name'] . " " . $row['last_name'] .  "</a></p>";
+
+
+    if (strpos(strtolower($row['content']), 'slike/') !== false) {
+    // If the content is an image path, display the image
+    echo "<p><img src='" . $row['content'] . "' height=250 width=400></p>";
+    echo "<p>" . $row['description'] . "</p>";
+
+    } else {
+    // If the content is a string, display it
+    echo "<p>" . $row['content'] . "</p>";
+    }
+
+    echo "<p><i>Date: <b>" . $row['created_time'] . "</b></i></p>
+     <p>Likes: <b>" . $row['likes'] . "</b></p>";
+
+    $user_id="SELECT id FROM users WHERE active=1";
+    $userid=mysqli_query($konekcija, $user_id);
+
+    //if(mysql_num_rows($userid) <0){
+    //    echo "no results";
+    //}else{
+    $ovono = mysqli_fetch_assoc($userid);
+    $imence= implode($ovono);
+
+    $sql_check = "SELECT * FROM likes WHERE user_id = " . $imence . " AND post_id = " . $row['idp'];
+    $result_check = mysqli_query($konekcija, $sql_check);
+
+
+    // Display the like or unlike button based on whether the user has already liked the post
+    if (mysqli_num_rows($result_check) > 0) {
+        echo "<form action='../unlike.php' method='post' name='unlike'><input value=".$row['idp']." name='id' hidden><button>Unlike</button></form>";
+    } else {
+        echo "<form action='../lajkovanje.php' method='post' name='like'><input value=".$row['idp']." name='id' hidden><button>Like</button></form>";
+    }
+
+    echo "<form action='comment.html' method='get' name='comment'><input value=" .$row['idp']." name='id' hidden><button>Comment</button></form>";
+}
+
+}
+?>
+
+</div>
+<?php include "footer.html"; ?>
+
+</html>

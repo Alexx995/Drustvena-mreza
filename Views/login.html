@@ -1,8 +1,10 @@
 <?php 
 session_start();
-include "header.php";?>
+?>
+<h1>Login</h1>
+<img src="slike/Twitter_Logo_Mini.svg" alt="" height=200 width=150>
 
-<form  action= "logovanje.php" method="post">
+<form action= "../logovanje.php" method="post">
     <input type="text" name="email" placeholder="E-mail"><br><br>
     <input type="password" name="password" placeholder="Password"><br><br>
    <input type="submit" name="submit" placeholder="Register Now">
@@ -23,4 +25,4 @@ if(isset($_SESSION["error"])){
 
 
 
-<?php include "footer.php"; ?>
+<?php include "footer.html"; ?>

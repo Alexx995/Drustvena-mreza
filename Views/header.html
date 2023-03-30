@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Twiter</title>
+</head>
+<body>
+<div class="container">
+    <div class="nav">
+<div class="logo">
+    <img src="slike/Twitter_Logo_Mini.svg" height=70 width=70>
+
+    <a href="main.html">Home</a>
+
+</div>
+        <div class="search_bar">
+    <form class="inputs" action="pretraga.html" method='get'>
+
+        <div class="inputis">
+            <input type="text" name='text' >
+            <input class="save" type="submit"  value="pretraga" >
+
+        </div>
+
+    </form>
+        </div>
+        <div class="user_log">
+
+            <form action='inbox.html' method='post'><input value=".$row[" id"]." name='id' hidden><button>Messages</button></form>
+
+    <?php
+    //session_start();
+    require_once('../db.php');
+    $konekcija=(new mysqlconnector())->connectToMysql();
+
+
+
+    if(isset($_SESSION["email"])){
+        $sesn=($_SESSION["email"]);
+    }
+
+
+    $sql = "SELECT profile_image, first_name, last_name FROM users WHERE email='$sesn'";
+
+    $rezultat = mysqli_query($konekcija, $sql);
+
+    $row = mysqli_fetch_assoc($rezultat);
+
+    echo "<div class='profile_image'><img src='" . $row['profile_image'] . "' height=70 width=50  ></div>
+    <div class='username'><a href='profile.html'> " . $row['first_name'] . " " . $row['last_name'] . "</a></div></form>";
+
+
+    ?>
+
+        <form action="../logout.php" name="logout">
+
+            <input type="submit" value="logout" class="logout">
+
+        </form>
+        </div>
+
+</div>
+
+    <hr>
+

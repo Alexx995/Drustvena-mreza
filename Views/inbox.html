@@ -1,0 +1,23 @@
+<?php
+require_once('../db.php');
+$konekcija=(new mysqlconnector())->connectToMysql();
+session_start();
+include "header.html";
+
+
+$sql="SELECT id, profile_image, first_name, last_name FROM users";
+    $rezultat=mysqli_query($konekcija, $sql);
+while(($row = mysqli_fetch_assoc($rezultat))) {
+    $podaci[] = $row;
+}
+
+foreach($podaci as $row){
+
+
+
+    echo "<p><img src='" . $row['profile_image'] . "' height=50 width=40  >
+<a href='chat.html?id=".$row["id"]."''>" . $row['first_name'] . " " . $row['last_name'] .  "</a></p>";
+}
+
+?>
+

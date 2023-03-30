@@ -10,7 +10,7 @@ $postr=$_POST["post-profil"];
 
 if(strlen($postr) > 100 ){
     $_SESSION["dugackoime"]="Post is to long";
-    header("Location: profile.php");
+    header("Location: views/profile.html");
     return;
 }
 
@@ -30,7 +30,7 @@ VALUES ('$imence', '$postr', 0)";
 
 if(mysqli_query($konekcija, $sql_komanda)) {
     $_SESSION["posts"]="You added a post";
-    header("Location: profile.php");
+    header("Location: views/profile.html");
 }else {
     echo "Sql komanda nije uspela". mysqli_error($konekcija);
 }

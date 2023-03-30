@@ -1,0 +1,21 @@
+<?php
+require_once('../db.php');
+$konekcija=(new mysqlconnector())->connectToMysql();
+session_start();
+include "header.html";
+
+?>
+
+<form action="../send_message.php" method="post">
+    <input type="hidden" name="recipient_id" value="<?php echo $_GET['id']; ?>">
+    <label for="message">Type your message:</label>
+    <textarea name="message" id="message" rows="3" required></textarea>
+    <input type="submit" value="Send">
+</form>
+
+<?php
+
+
+
+
+

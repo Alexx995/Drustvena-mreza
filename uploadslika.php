@@ -20,20 +20,8 @@ $target = "slike/$image";
 $sql_komanda="UPDATE users SET  profile_image='$target' WHERE id='$imence' ";
 mysqli_query($konekcija, $sql_komanda);
 
+header("Location: views/profile.html");
 
-
-if (move_uploaded_file($tempname, $target))  {
-  //echo "<img src=".$target." height=500 width=400 />";
-  //$_SESSION["picture"]="<img src=".$target." height=200 width=150 />";
-  header("Location: profile.php"); 
-}else{
-  echo "Failed to upload image";
-}
-
-
-
-
-// $sql_komanda="UPDATE users SET profile_image='$target' WHERE 
 
 
 

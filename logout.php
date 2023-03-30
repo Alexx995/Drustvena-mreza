@@ -10,7 +10,7 @@ $sql_komanda="UPDATE users SET active=0 WHERE active=1";
 
 // provera
 if(mysqli_query($konekcija, $sql_komanda)) {
-    header("Location: index.php");  
+    header("Location: views/index.html");
  }else {
     echo "Sql komanda nije uspela". mysqli_error($konekcija);
   }

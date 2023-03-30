@@ -1,0 +1,25 @@
+<?php
+require_once('../db.php');
+$konekcija=(new mysqlconnector())->connectToMysql();
+session_start();
+include "header.html";
+
+$search=$_GET["text"];
+
+
+$sql="SELECT profile_image, first_name, last_name, id FROM users WHERE first_name='$search' OR last_name='$search'";
+
+$rezultat=mysqli_query($konekcija, $sql);
+
+while(($row = mysqli_fetch_assoc($rezultat))) {
+    $podaci[] = $row;
+}
+foreach($podaci as $row) {
+
+
+    echo "<p><img src='" . $row['profile_image'] . "' height=100 width=75  ></p>
+    <a href='tudjiprofil.html?id=".$row["id"]."''>" . $row['first_name'] . " " . $row['last_name'] .  "</a>";
+
+}
+
+
