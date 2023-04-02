@@ -36,6 +36,11 @@
     require_once('../db.php');
     $konekcija=(new mysqlconnector())->connectToMysql();
 
+            if(!isset($_SESSION["email"])){
+            header("Location: login.html");
+            exit;
+            }
+
 
 
     if(isset($_SESSION["email"])){

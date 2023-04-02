@@ -35,11 +35,11 @@ $post_id = $_POST["id"];
 $user_id = "SELECT id FROM users WHERE active=1";
 $userid = mysqli_query($konekcija, $user_id);
 $ovono = mysqli_fetch_assoc($userid);
-$imence = $ovono["id"];
+$loggedId = $ovono["id"];
 
 $sql_check = "SELECT * FROM likes WHERE user_id = ? AND post_id = ?";
 $stmt_check = mysqli_prepare($konekcija, $sql_check);
-mysqli_stmt_bind_param($stmt_check, "ii", $imence, $post_id);
+mysqli_stmt_bind_param($stmt_check, "ii", $loggedId, $post_id);
 mysqli_stmt_execute($stmt_check);
 $result_check = mysqli_stmt_get_result($stmt_check);
 
@@ -51,7 +51,7 @@ if (mysqli_num_rows($result_check) > 0) {
 
 $sql = "INSERT INTO likes (user_id, post_id) VALUES (?, ?)";
 $stmt = mysqli_prepare($konekcija, $sql);
-mysqli_stmt_bind_param($stmt, "ii", $imence, $post_id);
+mysqli_stmt_bind_param($stmt, "ii", $loggedId, $post_id);
 
 if (mysqli_stmt_execute($stmt)) {
     $sql_update = "UPDATE posts SET `likes` = `likes`+1 WHERE idp = ?";

@@ -18,14 +18,14 @@ if(strlen($postr) > 100 ){
 $user_id="SELECT id FROM users WHERE active=1";
 $userid=mysqli_query($konekcija, $user_id);
 $ovono = mysqli_fetch_assoc($userid);
-$imence= implode($ovono);
+$loggedId= implode($ovono);
 
 // var_dump($imence);
 // return;
 
 
 $sql_komanda="INSERT INTO posts (user_id, content, likes)
-VALUES ('$imence', '$postr', 0)";
+VALUES ('$loggedId', '$postr', 0)";
 
 
 if(mysqli_query($konekcija, $sql_komanda)) {

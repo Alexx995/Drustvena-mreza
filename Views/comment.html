@@ -47,7 +47,7 @@ foreach($podaci as $row){
 
 
 
-$sql_command="SELECT users.id, users.profile_image, users.first_name, users.last_name, comment.user_id, comment.comment, comment.created_time, posts.user_id, posts.idp, posts.content
+$sql_command="SELECT users.id, users.profile_image, users.first_name, users.last_name, comment.user_id, comment.comment, comment.created_time, comment.idc, posts.user_id, posts.idp, posts.content
 FROM users
 INNER JOIN comment ON users.id=comment.user_id
 INNER JOIN posts ON posts.idp=comment.post_id
@@ -66,11 +66,22 @@ if (empty($podacis)) {
 
 foreach($podacis as $rows){
 
+$user_id = "SELECT id FROM users WHERE active=1";
+$userid = mysqli_query($konekcija, $user_id);
+$ovono = mysqli_fetch_assoc($userid);
+$loggedId = $ovono["id"];
+
 
     echo "<p><img src='" . $rows['profile_image'] . "' height=50 width=40  >
 <h5><a href='tudjiprofil.php?id=".$rows["id"]."''>" . $rows['first_name'] . " " . $rows['last_name'] .  "</a></h5></p>
 <p>" . $rows['comment'] . "</p>
 <p><i>Date: <b>" . $rows['created_time'] . "</b></i></p>";
+if ($loggedId == $rows['user_id'] || $loggedId == $rows['id'] ) {
+echo "<form action='../brisanje_komentara.php' method='post'>
+    <input value=".$rows['idc']." name='id' hidden>
+    <button>Delete</button>
+</form>";
+}
 }
 }
 ?>

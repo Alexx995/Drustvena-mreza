@@ -6,7 +6,7 @@ $konekcija=(new mysqlconnector())->connectToMysql();
 $user_id="SELECT id FROM users WHERE active=1";
 $userid=mysqli_query($konekcija, $user_id);
 $ovono = mysqli_fetch_assoc($userid);
-$imence= implode($ovono);
+$loggedId= implode($ovono);
 
 
 
@@ -18,7 +18,7 @@ $description = $_POST["description"];
 
 
 if (move_uploaded_file($tempname, $target)) {
-    $sql_komanda = "INSERT INTO posts (user_id, content,description, likes) VALUES ('$imence', '$target','$description', 0)";
+    $sql_komanda = "INSERT INTO posts (user_id, content,description, likes) VALUES ('$loggedId', '$target','$description', 0)";
     mysqli_query($konekcija, $sql_komanda);
 }
         header("Location: views/main.html");

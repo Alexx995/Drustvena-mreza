@@ -3,15 +3,14 @@
 <?php
 
 session_start();
-// var_dump($_SESSION);
-// return;
-// if(!isset($_SESSION["email"])){
-//     header("location: login.php");
-// }
+
+
 //session_start();
+
 require_once('../db.php');
 $konekcija=(new mysqlconnector())->connectToMysql();
 include "header.html";
+
 
 ?>
 
@@ -83,6 +82,8 @@ foreach($podaci as $row){
     echo "<p>" . $row['content'] . "</p>";
     }
 
+
+
     echo "<p><i>Date: <b>" . $row['created_time'] . "</b></i></p>
      <p>Likes: <b>" . $row['likes'] . "</b></p>";
 
@@ -93,9 +94,9 @@ foreach($podaci as $row){
     //    echo "no results";
     //}else{
     $ovono = mysqli_fetch_assoc($userid);
-    $imence= implode($ovono);
+    $loggedId= implode($ovono);
 
-    $sql_check = "SELECT * FROM likes WHERE user_id = " . $imence . " AND post_id = " . $row['idp'];
+    $sql_check = "SELECT * FROM likes WHERE user_id = " . $loggedId . " AND post_id = " . $row['idp'];
     $result_check = mysqli_query($konekcija, $sql_check);
 
 

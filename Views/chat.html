@@ -13,9 +13,56 @@ include "header.html";
     <input type="submit" value="Send">
 </form>
 
+
 <?php
 
 
 
+$user_id = "SELECT id FROM users WHERE active=1";
+$userid = mysqli_query($konekcija, $user_id);
+$ovono = mysqli_fetch_assoc($userid);
+$loggedId = $ovono["id"];
 
+$chat_user_id = $_GET['id'];
+
+
+
+$chat = "SELECT users.first_name, users.last_name, users.profile_image, messages.send_id, messages.get_id, messages.text, messages.created_time FROM users INNER JOIN messages ON users.id = messages.send_id WHERE (messages.send_id = $loggedId AND messages.get_id = $chat_user_id) OR (messages.send_id = $chat_user_id AND messages.get_id = $loggedId) ORDER BY messages.created_time DESC ";
+
+
+$rezultat=mysqli_query($konekcija, $chat);
+
+
+
+while(($row = mysqli_fetch_assoc($rezultat))) {
+    $podaci[] = $row;
+}
+
+if (empty($podaci)) {
+    echo "<p>There are no data to display.</p>";
+} else {
+
+foreach($podaci as $row){
+
+ echo "<div class='chat-message'>";
+echo "<img src='" . $row['profile_image'] . "' alt='Profile Image' height=50 width=40 >";
+echo "<div class='chat-message-content'>";
+    echo "<p>" . $row['first_name'] . " " . $row['last_name'] . "</p>";
+    echo "<h4>" . $row['text'] . "</h4>";
+    echo "<p>" . $row['created_time'] . "</p>";
+    echo "<hr>";
+    echo "</div>";
+echo "</div>";
+
+}
+}
+
+?>
+
+<!--<form action="../send_message.php" method="post">-->
+<!--    <input type="hidden" name="recipient_id" value="<?php echo $_GET['id']; ?>">-->
+<!--    <label for="message">Type your message:</label>-->
+<!--    <textarea name="message" id="message" rows="3" required></textarea>-->
+<!--    <input type="submit" value="Send">-->
+<!--</form>-->
 

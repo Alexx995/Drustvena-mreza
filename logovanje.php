@@ -3,7 +3,7 @@
 require_once('db.php');
 $konekcija=(new mysqlconnector())->connectToMysql();
 
-
+session_start();
 
 
 $email=$_POST["email"];
@@ -24,7 +24,7 @@ while(($row = mysqli_fetch_assoc($rezultat))) {
 // return;
 
 
-session_start();
+
 $_SESSION["error"]="";
 
 

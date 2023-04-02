@@ -56,9 +56,9 @@ $userid=mysqli_query($konekcija, $user_id);
 //    echo "no results";
 //}else{
 $ovono = mysqli_fetch_assoc($userid);
-$imence= implode($ovono);
+$loggedId= implode($ovono);
 
-$proba="SELECT users.profile_image, users.first_name, users.last_name, posts.content, posts.description, posts.likes,  posts.created_time, posts.idp FROM users INNER JOIN posts ON users.id=posts.user_id WHERE users.id='$imence' ORDER BY posts.created_time  DESC";
+$proba="SELECT users.profile_image, users.first_name, users.last_name, posts.content, posts.description, posts.likes,  posts.created_time, posts.idp FROM users INNER JOIN posts ON users.id=posts.user_id WHERE users.id='$loggedId' ORDER BY posts.created_time  DESC";
 $rezultat=mysqli_query($konekcija, $proba);
 
 
@@ -90,7 +90,7 @@ echo "<p><i>Date: <b>" . $row['created_time'] . "</b></i></p>
 <p>Likes: <b>" . $row['likes'] . "</b></p>";
 
 // Check if user has already liked the post
-$sql_check = "SELECT * FROM likes WHERE user_id = " . $imence . " AND post_id = " . $row['idp'];
+$sql_check = "SELECT * FROM likes WHERE user_id = " . $loggedId . " AND post_id = " . $row['idp'];
 $result_check = mysqli_query($konekcija, $sql_check);
 
 // Display the like or unlike button based on whether the user has already liked the post

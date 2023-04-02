@@ -14,10 +14,10 @@ session_start();
     $user_id="SELECT id FROM users WHERE active=1";
     $userid=mysqli_query($konekcija, $user_id);
     $ovono = mysqli_fetch_assoc($userid);
-    $imence= implode($ovono);
+    $loggedId= implode($ovono);
 
     // insert message into the database
-    $sql = "INSERT INTO messages (send_id, get_id, text) VALUES ($imence, $receiver_id, '$message')";
+    $sql = "INSERT INTO messages (send_id, get_id, text) VALUES ($loggedId, $receiver_id, '$message')";
     $result = mysqli_query($konekcija, $sql);
 
     if ($result) {

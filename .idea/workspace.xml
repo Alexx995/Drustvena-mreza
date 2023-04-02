@@ -5,58 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="615a5b6b-73f5-4db5-960d-1dd67e971c98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/chat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/comment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/inbox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/photovideo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/pretraga.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/tudjiprofil.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comment2.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/insertpicture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/send_message.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unlike.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unlikesaprofila.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unlikesatudjegprofila.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brisanje_komentara.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brisanje_podataka.php" beforeDir="false" afterPath="$PROJECT_DIR$/brisanje_podataka.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/comment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/tudjiprofil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/tudjiprofil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment2.php" beforeDir="false" afterPath="$PROJECT_DIR$/comment2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/insertpicture.php" beforeDir="false" afterPath="$PROJECT_DIR$/insertpicture.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lajkovanje.php" beforeDir="false" afterPath="$PROJECT_DIR$/lajkovanje.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lajkovanje_sa_profila.php" beforeDir="false" afterPath="$PROJECT_DIR$/lajkovanje_sa_profila.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lajkovanje_tudjeg_profila.php" beforeDir="false" afterPath="$PROJECT_DIR$/lajkovanje_tudjeg_profila.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logovanje.php" beforeDir="false" afterPath="$PROJECT_DIR$/logovanje.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/postovanje.php" beforeDir="false" afterPath="$PROJECT_DIR$/postovanje.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/postovanjesaprofila.php" beforeDir="false" afterPath="$PROJECT_DIR$/postovanjesaprofila.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profil.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registrovanje.php" beforeDir="false" afterPath="$PROJECT_DIR$/registrovanje.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/10250288_10202068788897576_2963108004855009036_n.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/10250288_10202068788897576_2963108004855009036_n.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/10296834_10202068793097681_3659004199550377251_n.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/10296834_10202068793097681_3659004199550377251_n.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/10369571_10202068789497591_3345065350570549270_n.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/10369571_10202068789497591_3345065350570549270_n.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/Aleksandars-Resume.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/Aleksandars-Resume.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/Our-Kind-of-People-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/Our-Kind-of-People-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/Screenshot (3).png" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/Screenshot (3).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/Screenshot (4).png" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/Screenshot (4).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/Twitter_Logo_Mini.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/Twitter_Logo_Mini.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/c1_1937552_200619122619.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/c1_1937552_200619122619.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/gejmerska1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/gejmerska1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/kancelarijska3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/kancelarijska3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/slicica.png" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/slicica.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/slika.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/slika.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/slika2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/slika2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/slika3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/slika3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slike/slika4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Views/slike/slika4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tudjiprofil.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/send_message.php" beforeDir="false" afterPath="$PROJECT_DIR$/send_message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unlike.php" beforeDir="false" afterPath="$PROJECT_DIR$/unlike.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unlikesaprofila.php" beforeDir="false" afterPath="$PROJECT_DIR$/unlikesaprofila.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unlikesatudjegprofila.php" beforeDir="false" afterPath="$PROJECT_DIR$/unlikesatudjegprofila.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uploadslika.php" beforeDir="false" afterPath="$PROJECT_DIR$/uploadslika.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +76,9 @@
       <workItem from="1679945776421" duration="17112000" />
       <workItem from="1680022198776" duration="21127000" />
       <workItem from="1680103940904" duration="2462000" />
-      <workItem from="1680147687334" duration="6345000" />
+      <workItem from="1680147687334" duration="7661000" />
+      <workItem from="1680270515005" duration="13376000" />
+      <workItem from="1680456017507" duration="4971000" />
     </task>
     <servers />
   </component>

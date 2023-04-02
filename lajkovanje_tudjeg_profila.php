@@ -13,9 +13,9 @@ $user_id_post = $row_elseId["user_id"];
 $user_id = "SELECT id FROM users WHERE active=1";
 $userid = mysqli_query($konekcija, $user_id);
 $ovono = mysqli_fetch_assoc($userid);
-$imence = $ovono["id"];
+$loggedId = $ovono["id"];
 
-$sql_check = "SELECT * FROM likes WHERE user_id = $imence AND post_id = $post_id";
+$sql_check = "SELECT * FROM likes WHERE user_id = $loggedId AND post_id = $post_id";
 $result_check = mysqli_query($konekcija, $sql_check);
 if (mysqli_num_rows($result_check) > 0) {
     // The user has already liked the post, do not add another like
@@ -23,7 +23,7 @@ if (mysqli_num_rows($result_check) > 0) {
     exit();
 }
 
-$sql = "INSERT INTO likes (user_id, post_id) VALUES ('$imence', '$post_id')";
+$sql = "INSERT INTO likes (user_id, post_id) VALUES ('$loggedId', '$post_id')";
 
 
 

@@ -7,13 +7,13 @@ include "header.html";
 $user_id="SELECT id FROM users WHERE active=1";
 $userid=mysqli_query($konekcija, $user_id);
 $ovono = mysqli_fetch_assoc($userid);
-$imence= implode($ovono);
+$loggedId= implode($ovono);
 
 
 $id=$_GET["id"];
 
 
-if ($id == $imence) {
+if ($id == $loggedId) {
     header("Location: profile.html");
     exit();
 } else {
@@ -28,6 +28,8 @@ if ($id == $imence) {
 echo "<p><img src='" . $row['profile_image'] . "' height=200 width=150  ></p>
     <p><a href='tudjiprofil.html?id=".$row["id"]."''>" . $row['first_name'] . " " . $row['last_name'] .  "</a></p>
 <p><a href='chat.html?id=".$row["id"]."''>Send a message</a></p>
+
+
 
 </form>";
 ?>
@@ -75,10 +77,10 @@ $userid=mysqli_query($konekcija, $user_id);
 //    echo "no results";
 //}else{
 $ovono = mysqli_fetch_assoc($userid);
-$imence= implode($ovono);
+$loggedId= implode($ovono);
 
 // Check if user has already liked the post
-$sql_check = "SELECT * FROM likes WHERE user_id = " . $imence . " AND post_id = " . $row['idp'];
+$sql_check = "SELECT * FROM likes WHERE user_id = " . $loggedId . " AND post_id = " . $row['idp'];
 $result_check = mysqli_query($konekcija, $sql_check);
 
 // Display the like or unlike button based on whether the user has already liked the post
